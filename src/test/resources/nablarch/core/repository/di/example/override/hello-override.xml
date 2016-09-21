@@ -1,0 +1,15 @@
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /home/ssd/workspace/Nablarch/resources/component-configuration.xsd">
+
+	<!-- 元の設定 -->
+    <component name="overrideExample" class="nablarch.core.repository.di.example.override.OverrideExample">
+        <property name="str1" value="base value1" />
+        <property name="str2" value="base value2" />
+    </component>
+
+	<!-- 上書き設定 -->
+    <component name="overrideExample" class="nablarch.core.repository.di.example.override.OverrideExample">
+        <property name="str2" value="override value2" />
+        <property name="str3" value="override value3" />
+    </component>
+</component-configuration>

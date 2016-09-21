@@ -1,0 +1,15 @@
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration ./component-configuration.xsd">
+
+    <!--
+        HelloComponentクラスはHelloMessageProvider型のプロパティhelloMessageProviderを持つが、
+        helloComponentにはインジェクションの設定をしていない。
+    -->
+    <component name="helloComponent"
+        class="nablarch.core.repository.di.example.autowirebytype.HelloComponent"/>
+
+    <!-- HelloMessageProviderインタフェースを実装したクラス -->
+    <component
+        class="nablarch.core.repository.di.example.autowirebytype.BasicHelloMessageProvider"/>
+</component-configuration>

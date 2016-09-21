@@ -1,0 +1,81 @@
+<component-configuration
+    xmlns="http://tis.co.jp/nablarch/component-configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+    
+    <component name="valueComponent" class="nablarch.core.repository.di.example.collection.ComponentB">
+        <property name="name" value="compB_0"/>
+    </component>
+
+    <component name="compA" class="nablarch.core.repository.di.example.collection.ComponentA">
+        <property name="listProperty" ref="listComponent"/>
+        <property name="mapProperty" ref="mapComponent"/>
+    </component>
+    
+    <list name="listComponent">
+        <!-- コンポーネントの参照を記述 -->
+        <component-ref name="valueComponent"/>
+        <!-- インラインでコンポーネントを記述 -->
+        <component class="nablarch.core.repository.di.example.collection.ComponentB">
+            <property name="name" value="compB_1"/>
+        </component>
+        <!-- リストに文字列を追加 -->
+        <value>String value</value>
+    </list>
+
+    <map name="mapComponent">
+        <!-- 
+            エントリの定義
+                キー:文字列
+                値:コンポーネントの参照
+         -->
+        <entry key="compB_0" value-name="valueComponent">
+        </entry>
+    
+        <!-- 
+            エントリの定義
+                キー:文字列
+                値:インラインのコンポーネント定義
+         -->
+        <entry key="compB_2">
+            <value-component class="nablarch.core.repository.di.example.collection.ComponentB">
+                <property name="name" value="compB_2"/>
+            </value-component>
+        </entry>
+        
+        <!-- 
+            エントリの定義
+                キー:文字列
+                値:文字列
+         -->
+        <entry key="stringKey" value="String value">
+        
+        </entry>
+        
+        <!-- 
+            エントリの定義
+                キー:インラインのコンポーネント定義
+                値:インラインのコンポーネント定義
+         -->
+        <entry>
+            <key-component class="nablarch.core.repository.di.example.collection.KeyComponent">
+                <property name="id" value="00001"/>
+                <property name="lang" value="ja"/>
+            </key-component>
+            <value-component class="nablarch.core.repository.di.example.collection.ComponentB">
+                <property name="name" value="compB_3"/>
+            </value-component> 
+        </entry>
+    </map>
+
+    <component name="compA_2" class="nablarch.core.repository.di.example.collection.ComponentA">
+        <property name="listProperty" >
+            <list>
+            </list>
+        </property>
+        <property name="mapProperty" >
+            <map>
+            </map>
+        </property>
+    </component>
+
+</component-configuration>

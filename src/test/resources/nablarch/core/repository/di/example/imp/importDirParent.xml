@@ -1,0 +1,9 @@
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration ./component-configuration.xsd">
+    <!-- environment_config ディレクトリ以下にある ".config" で終わるファイル名の環境設定ファイルを一括で読み込む -->
+    <config-file dir="./environment_config/" file="*.config" />
+
+    <!-- component_config ディレクトリ以下にある ".xml" で終わるファイル名のコンポーネント設定ファイルを一括で読み込む -->
+    <import dir="./component_config/" file="*.xml" />
+</component-configuration>

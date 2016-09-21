@@ -1,0 +1,19 @@
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration ./component-configuration.xsd">
+
+    <!-- 環境設定ファイルのロード設定 -->
+    <config-file file="nablarch/core/repository/di/example/configfile/hello.config"/>
+
+    <component name="helloComponent" class="nablarch.core.repository.di.example.hello.HelloComponent">
+        <property name="helloMessageProvider" ref="helloMessageProvider"/>
+    </component>
+
+    <component name="helloMessageProvider"
+        class="nablarch.core.repository.di.example.hello.HelloMessageProvider">
+        <!--
+        環境設定ファイルに記述した hello.message の値をプロパティhelloMessageに設定する。
+         -->
+        <property name="helloMessage" value="${hello.message}" />
+    </component>
+</component-configuration>

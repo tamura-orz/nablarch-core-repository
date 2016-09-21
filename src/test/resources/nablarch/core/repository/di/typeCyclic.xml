@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                         xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration ../../../../component-configuration.xsd">
+
+    <!--
+       オートワイヤで循環するケース。
+       component1 -> component2 -> component3 -> component1
+       -->
+    <component class="nablarch.core.repository.di.test.CyclicReferenceComponent1" name="component1"/>
+    <component class="nablarch.core.repository.di.test.CyclicReferenceComponent2" name="component2"/>
+    <component class="nablarch.core.repository.di.test.CyclicReferenceComponent3" name="component3"/>
+</component-configuration>

@@ -1,0 +1,6 @@
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /home/ssd/workspace/Nablarch/resources/component-configuration.xsd">
+
+	<!-- プロパティファイルのロード設定 -->
+    <config-file file="nablarch/core/repository/di/example/configfile/hello.config"/>
+</component-configuration>

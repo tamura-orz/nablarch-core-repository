@@ -1,0 +1,13 @@
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration ./component-configuration.xsd">
+    <config-file file="nablarch/core/repository/di/example/override/hello-system-property.config"/>
+
+    <component name="helloComponent" class="nablarch.core.repository.di.example.hello.HelloComponent">
+        <property name="helloMessageProvider" ref="helloMessageProvider"/>
+    </component>
+
+    <component name="helloMessageProvider" class="nablarch.core.repository.di.example.hello.HelloMessageProvider">
+        <property name="helloMessage" value="${hello.message}" />
+    </component>
+
+</component-configuration>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration /home/ssd/workspace/Nablarch/resources/component-configuration.xsd">
+	<import file="/opt/app/app/conf2.xml" />
+	<import dir="/opt/app/conf-dir" file="*.xml" />
+	<config-file dir="/opt/app/conf" file="conf1.properties" />
+
+	<component name="comp1" class="jp.co.tis.test.Component1">
+		<property name="val1" value="string value" />
+		<property name="val2">
+			<component class="jp.co.tis.test.Component4">
+				<property name="val1" value="string value" />
+			</component>
+		</property>
+	</component>
+	<component name="comp2" class="jp.co.tis.test.Component2"
+		autowireType="ByName">
+		<property name="name01">
+			<list>
+				<component name="comp3-1" class="jp.co.tis.test.Component3" />
+				<component name="comp3-2" class="jp.co.tis.test.Component3" />
+			</list>
+		</property>
+	</component>
+
+	<component name="comp4" class="jp.co.tis.test.Component4">
+		<property name="prop01">
+			<map>
+				<entry key="key1" value-name="myname"></entry>
+				<entry key="key2">
+					<value-component class="jp.co.tis.test.Component5"></value-component>
+				</entry>
+			</map>
+		</property>
+	</component>
+</component-configuration>

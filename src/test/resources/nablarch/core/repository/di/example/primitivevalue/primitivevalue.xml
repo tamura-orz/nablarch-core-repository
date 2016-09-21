@@ -1,0 +1,16 @@
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration ./component-configuration.xsd">
+    <component name="primitiveValueHolder" class="nablarch.core.repository.di.example.primitivevalue.PrimitiveValueHolder">
+        <property name="stringValue" value="string value" />
+        <property name="boolValue" value="true" />
+        <property name="boolWrapperValue" value="false" />
+        <property name="intValue" value="2" />
+        <property name="intWrapperValue" value="3" />
+        <property name="longValue" value="5" />
+        <property name="longWrapperValue" value="6" />
+        <property name="stringArrayValue" value="abc,def,ghi" />
+        <property name="intArrayValue" value="1,2,3" />
+        <property name="integerArrayValue" value="4,5,6" />
+    </component>
+</component-configuration>

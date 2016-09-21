@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-configuration
+        xmlns="http://tis.co.jp/nablarch/component-configuration"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration ./component-configuration.xsd">
+
+  <!--
+    TestEventDispatcherのstatic初期化ブロックで
+    リポジトリが初期化されるので空の設定ファイルを配置しておき、
+    DemoWebAppRequestTestSupportにてリポジトリの初期化タイミングを制御しています。
+  -->
+
+</component-configuration>

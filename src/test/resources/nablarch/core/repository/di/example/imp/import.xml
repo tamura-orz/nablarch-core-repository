@@ -1,0 +1,5 @@
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    >
+    <import file="nablarch/core/repository/di/example/imp/imported1.xml"/>
+    <import file="nablarch/core/repository/di/example/imp/imported2.xml"/>
+</component-configuration>

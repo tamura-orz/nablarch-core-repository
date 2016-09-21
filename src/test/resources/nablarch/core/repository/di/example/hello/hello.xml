@@ -1,0 +1,27 @@
+<component-configuration xmlns="http://tis.co.jp/nablarch/component-configuration"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tis.co.jp/nablarch/component-configuration ./component-configuration.xsd">
+    <!--
+       HelloComponentクラスのインスタンスをコンポーネント名helloComponentで登録する設定。
+       name属性にはコンポーネント名、class属性にはクラスの完全修飾名を記述する。
+     -->
+    <component name="helloComponent" class="nablarch.core.repository.di.example.hello.HelloComponent">
+        <!--
+        helloMessageProviderコンポーネントへの参照設定。
+        name属性にはプロパティ名、ref属性には参照するコンポーネントのコンポーネント名を設定する。
+         -->
+        <property name="helloMessageProvider" ref="helloMessageProvider"/>
+    </component>
+    <!--
+       HelloMessageProviderクラスのインスタンスをコンポーネント名helloMessageProviderで登録する設定。
+       name属性にはコンポーネント名、class属性にはクラスの完全修飾名を記述する。
+     -->
+    <component name="helloMessageProvider"
+       class="nablarch.core.repository.di.example.hello.HelloMessageProvider">
+        <!--
+         コンポーネントのプロパティに値を設定。
+         name属性にはプロパティ名、value属性にはプロパティに設定する値を記述する。
+        -->
+        <property name="helloMessage" value="hello!" />
+    </component>
+</component-configuration>
