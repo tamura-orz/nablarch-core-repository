@@ -26,8 +26,8 @@ targetCompatibility=JavaVersion.VERSION_1_6
 dependencies {
   compile "com.nablarch.framework:nablarch-core:${nablarchCoreVersion}"
 
-  testCompile 'com.nablarch.dev:nablarch-test-support:0.0.4'
-  testCompile 'com.nablarch.dev:nablarch-test-support-hereis:0.0.1'
+  testCompile 'com.nablarch.dev:nablarch-test-support:0.0.5'
+  testCompile 'com.nablarch.dev:nablarch-test-support-hereis:1.0.0'
   testCompile 'com.nablarch.framework:nablarch-core-applog:1.0.1'
 
   // for hereis
