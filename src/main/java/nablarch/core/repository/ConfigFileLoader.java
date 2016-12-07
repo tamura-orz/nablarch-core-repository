@@ -162,8 +162,10 @@ public class ConfigFileLoader implements ObjectLoader {
     public Map<String, Object> load() {
         Map<String, Object> values;
         BufferedReader reader = null;
-        LOGGER.logInfo("load environment config file." 
-                + " file = " + url);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.logDebug("load environment config file."
+                    + " file = " + url);
+        }
         try {
             if (url != null) {
                 if (LOGGER.isTraceEnabled()) {
