@@ -151,8 +151,10 @@ public class XmlComponentDefinitionLoader implements ComponentDefinitionLoader {
                 // スキーマ定義なしの場合、クラスパスから取得
                 inputFileUrl = "classpath:" + inputFileUrl;
             }
-            LOGGER.logInfo("load component config file." 
-                    + " file = " + inputFileUrl);
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.logDebug("load component config file."
+                        + " file = " + inputFileUrl);
+            }
             in = FileUtil.getResource(inputFileUrl);
 
             return loadInner(container, in, inputFileUrl);
@@ -459,8 +461,10 @@ public class XmlComponentDefinitionLoader implements ComponentDefinitionLoader {
             }
             importFileNames.get().push(url);
             try {
-                LOGGER.logInfo("load component config file." 
-                        + " file = " + fileUrl);
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.logDebug("load component config file."
+                            + " file = " + fileUrl);
+                }
                 in = FileUtil.getResource(fileUrl);
                 return loadInner(container, in, "file:" + inputFileUrl);
             } finally {
