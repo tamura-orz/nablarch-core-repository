@@ -568,12 +568,7 @@ public class DiContainer implements ObjectLoader {
          * {@link DiContainer}インスタンスが、マルチスレッドで共用される場合を考慮して
          * {@link ThreadLocal}を使用する。
          */
-        private ThreadLocal<List<String>> stack = new ThreadLocal<List<String>>() {
-            @Override
-            protected List<String> initialValue() {
-                return new LinkedList<String>();
-            }
-        };
+        private final LinkedList<String> stack = new LinkedList<String>();
 
         /**
          * コンポーネント定義をスタックに格納する。
@@ -600,7 +595,7 @@ public class DiContainer implements ObjectLoader {
          * @param lookUpType ルックアップする型
          */
         private void push(ComponentDefinition definition, String lookUpType) {
-            stack.get().add(createStackElement(definition, lookUpType));
+            stack.add(createStackElement(definition, lookUpType));
         }
 
         /**
@@ -608,9 +603,7 @@ public class DiContainer implements ObjectLoader {
          * @return メッセージ
          */
         String pop() {
-            List<String> s = stack.get();
-            int lastIndex = s.size() - 1;
-            return s.remove(lastIndex);
+            return stack.removeLast();
         }
 
         /**
@@ -619,7 +612,7 @@ public class DiContainer implements ObjectLoader {
          */
         String getReferenceStack() {
             StringBuilder sb = new StringBuilder("\nReference stack is below.\n");
-            for (String e : stack.get()) {
+            for (String e : stack) {
                 sb.append(e);
             }
             return sb.toString();
