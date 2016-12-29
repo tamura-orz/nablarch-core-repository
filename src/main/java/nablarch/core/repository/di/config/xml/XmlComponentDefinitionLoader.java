@@ -89,11 +89,7 @@ public class XmlComponentDefinitionLoader implements ComponentDefinitionLoader {
     /**
      * import したファイルのスタック。(参照ループが発生しないようにするため。)
      */
-    private ThreadLocal<Deque<URL>> importFileNames = new ThreadLocal<Deque<URL>>() {
-        protected Deque<URL> initialValue() {
-            return new ArrayDeque<URL>();
-        };
-    };
+    private final Deque<URL> importFileNames = new ArrayDeque<URL>();
 
     static {
         Set<Class<?>> tmpIgnoreAutowiredClasses = new HashSet<Class<?>>();
@@ -144,7 +140,7 @@ public class XmlComponentDefinitionLoader implements ComponentDefinitionLoader {
         InputStream in = null;
 
         // load毎にimportのスタックをクリア
-        importFileNames.get().clear();
+        importFileNames.clear();
 
         try {
             if (!inputFileUrl.contains(":")) {
@@ -164,7 +160,7 @@ public class XmlComponentDefinitionLoader implements ComponentDefinitionLoader {
                     , e);
         } finally {
             FileUtil.closeQuietly(in);
-            importFileNames.remove();
+            importFileNames.clear();
         }
 
     }
@@ -455,11 +451,11 @@ public class XmlComponentDefinitionLoader implements ComponentDefinitionLoader {
                 throw new ConfigurationLoadException(
                         "file to import not found. path=[" + fileUrl + "]");
             }
-            if (importFileNames.get().contains(url)) {
+            if (importFileNames.contains(url)) {
                 throw new ConfigurationLoadException("import directive is circular.\n"
-                       + "import stack = [" + importFileNames.get() + "]");
+                       + "import stack = [" + importFileNames + "]");
             }
-            importFileNames.get().push(url);
+            importFileNames.push(url);
             try {
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.logDebug("load component config file."
@@ -469,7 +465,7 @@ public class XmlComponentDefinitionLoader implements ComponentDefinitionLoader {
                 return loadInner(container, in, "file:" + inputFileUrl);
             } finally {
                 FileUtil.closeQuietly(in);
-                importFileNames.get().pop();
+                importFileNames.pop();
             }
             
         } else {
