@@ -11,6 +11,7 @@ install: true
  
 cache:
   directories:
+    - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
 before_script:
