@@ -13,6 +13,15 @@ buildscript {
     classpath "net.saliman:gradle-cobertura-plugin:2.4.0"
   }
 }
+
+maven {
+  url "s3://tamutamu.test.s3/repo2"
+  credentials(AwsCredentials) {
+    accessKey "AKIAIS5CQUHDMFQW6VXA"
+    secretKey ${nablarchRepoPassword}
+  }
+}
+
 apply plugin: 'com.nablarch.dev.nablarch-build'
 apply plugin: 'com.nablarch.dev.nablarch-maven-deploy'
 apply plugin: 'com.nablarch.dev.nablarch-sonarqube'
