@@ -18,7 +18,7 @@ repositories {
     url "s3://tamutamu.test.s3/repo2"
     credentials(AwsCredentials) {
       accessKey "AKIAIS5CQUHDMFQW6VXA"
-      secretKey ${nablarchRepoPassword}
+      secretKey "${nablarchRepoPassword}"
     }
   }
 }
