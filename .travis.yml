@@ -22,7 +22,7 @@ before_script:
   - echo ${DEPLOY_REPO_NAME}
   
 script:
-  - ./gradlew --refresh-dependencies uploadArchives -PnablarchRepoUsername=${REPO_USER} -PnablarchRepoPassword=${DEPLOY_PASSWORD} -PnablarchRepoReferenceUrl=${DEVELOP_REPO_URL} -PnablarchRepoReferenceName=${DEVELOP_REPO_NAME} -PnablarchRepoDeployUrl=${DEPLOY_HOST_URL} -PnablarchRepoName=${DEPLOY_REPO_NAME} --no-daemon
+  - ./gradlew --refresh-dependencies uploadArchives -PuseRepoCredentials=true -PnablarchRepoUsername=${REPO_USER} -PnablarchRepoPassword=${DEPLOY_PASSWORD} -PnablarchRepoReferenceUrl=${DEVELOP_REPO_URL} -PnablarchRepoReferenceName=${DEVELOP_REPO_NAME} -PnablarchRepoDeployUrl=${DEPLOY_HOST_URL} -PnablarchRepoName=${DEPLOY_REPO_NAME} --no-daemon
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
